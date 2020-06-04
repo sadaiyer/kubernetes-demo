@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: cj1
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: cj1
+    spec:
+      completions: 1
+      activeDeadlineSeconds: 30
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          terminationGracePeriodSeconds: 0
+          containers:
+          - image: kodekloud/throw-dice
+            name: cj1
+            resources: {}
+          restartPolicy: Never
+status: {}

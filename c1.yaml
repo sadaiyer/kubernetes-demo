@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: c1
+  name: c1
+spec:
+  volumes:
+  - name: data-volume
+    hostPath:
+       path: /data
+  - name: config-volume
+    configMap:
+      name: time-config
+  - name: secret-volume
+    secret:
+      secretName: db-password
+  containers:
+  - command:
+    - /bin/sh
+    - -c
+    - echo HW && sleep 600
+    image: busybox
+    envFrom:
+    - configMapRef:
+        name: time-config
+    - secretRef:
+        name: db-password
+    env:
+    - name: TIME_FREQ
+      valueFrom:
+        configMapKeyRef:
+           name: time-config
+           key: TIME_FREQ
+    - name: DB_SECRET
+      valueFrom:
+         secretKeyRef:
+            name: db-password
+            key: password
+    volumeMounts:
+    - name: data-volume
+      mountPath: /data
+    - name: config-volume
+      mountPath: /etc/config
+    - name: secret-volume
+      mountPath: /etc/secret
+    name: c1
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

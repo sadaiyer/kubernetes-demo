@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: bash
+  name: bash
+spec:
+  securityContext:
+    runAsUser: 21
+  volumes:
+    - name: share
+      emptyDir: {}
+  initContainers:
+  - name: permission-handler
+    image: bash
+    securityContext:
+      runAsUser: 0
+    command:
+    - /bin/sh
+    - -c
+    - chmod 644 /tmp/share
+    volumeMounts:
+      - name: share
+        mountPath: /tmp/share
+  containers:
+  - command:
+    - /bin/sh
+    - -c
+    - sleep 1d
+    image: bash
+    name: bash1
+    securityContext:
+      runAsUser: 0
+    volumeMounts:
+      - name: share
+        mountPath: /tmp/share
+  - command:
+    - /bin/sh
+    - -c
+    - sleep 1d
+    image: bash
+    name: bash2
+    securityContext:
+      runAsUser: 21
+    volumeMounts:
+      - name: share
+        mountPath: /tmp/share
+  restartPolicy: Never

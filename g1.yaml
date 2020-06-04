@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: bb
+  name: bb
+spec:
+  volumes:
+  - name: emv
+    emptyDir: {}
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - "while true; do echo 'Hi Iam from Main container' >> /var/log/index.hmtl ;sleep 5; done"
+    image: busybox
+    name: bb
+    volumeMounts:
+    - mountPath: /var/log
+      name: emv
+    resources: {}
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: emv
+      mountPath: /usr/share/nginx/html
+#  - image: nginx
+#    name: nginx
+#    volumeMounts:
+#    - mountPath: /usr/share/nginx/html
+#      name: emv
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

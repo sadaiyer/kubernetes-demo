@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: bb
+  name: bb
+spec:
+  volumes:
+  - name: pvc-claim
+    persistentVolumeClaim:
+       claimName: mysql-pv-claim
+  containers:
+  - command:
+    - /bin/sh
+    - -c
+    - echo HW && sleep 600
+    image: busybox
+    name: bb
+    volumeMounts:
+    - name: pvc-claim
+      mountPath: /mysql
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

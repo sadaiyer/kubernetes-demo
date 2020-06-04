@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  volumes:
+  - name: workdir-volume
+    emptyDir: {}
+  initContainers:
+  - image: busybox
+    name: bb
+    command:
+    - /bin/sh
+    - -c
+    - "touch /workdir/FileExists; sleep 5"
+    volumeMounts:
+    - name: workdir-volume
+      mountPath: /workdir
+  containers:
+  - image: nginx
+    name: nginx
+    readinessProbe:
+      tcpSocket:
+        port: 80
+      initialDelaySeconds: 20
+      periodSeconds: 5
+    livenessProbe:
+      httpGet:
+        port: 80
+        path: /
+      initialDelaySeconds: 20
+      periodSeconds: 5
+    startupProbe:
+      exec:
+        command:
+        - ls
+        - /workdir/FileExists
+      initialDelaySeconds: 20
+      periodSeconds: 5
+    volumeMounts:
+    - name: workdir-volume
+      mountPath: /workdir
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: bb
+  name: bb
+spec:
+  volumes:
+  - name: log-volume
+    hostPath:
+      path: /opt/time
+  - name: config-volume
+    configMap:
+      name: time-config
+  - name: secret-volume
+    secret:
+      secretName: db-password
+  - name: pvc-volume
+    persistentVolumeClaim:
+      claimName: mysql-pv-claim
+  containers:
+  - command:
+    - /bin/sh
+    - -c
+    - "echo sleeping for $TIME_FREQ > /opt/time/time-check.log; sleep 600"
+    image: busybox
+    name: bb
+    env:
+    - name: TIME_FREQ
+      valueFrom:
+       configMapKeyRef:
+         name: time-config
+         key: TIME_FREQ
+    volumeMounts:
+    - name: log-volume
+      mountPath: /opt/time
+    - name: config-volume
+      mountPath: /etc/config
+    - name: secret-volume
+      mountPath: /etc/secrets
+    - name: pvc-volume
+      mountPath: /etc/pvc-volume
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

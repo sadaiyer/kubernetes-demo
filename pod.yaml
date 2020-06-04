@@ -1,0 +1,666 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2020-06-02T01:28:50Z"
+    labels:
+      run: bash
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:run: {}
+        f:spec:
+          f:containers:
+            k:{"name":"bash"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kubectl
+      operation: Update
+      time: "2020-06-02T01:28:50Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.244.1.123"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2020-06-02T01:32:15Z"
+    name: bash
+    namespace: dev-ns
+    resourceVersion: "1376304"
+    selfLink: /api/v1/namespaces/dev-ns/pods/bash
+    uid: e320cf4b-87ee-4421-946c-355f6a9b5b92
+  spec:
+    containers:
+    - image: bash
+      imagePullPolicy: Always
+      name: bash
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-r7cqt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-r7cqt
+      secret:
+        defaultMode: 420
+        secretName: default-token-r7cqt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:28:50Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:28:50Z"
+      message: 'containers with unready status: [bash]'
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:28:50Z"
+      message: 'containers with unready status: [bash]'
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:28:50Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://e0516f93c1ecc6dcf19c33b21c0a30a0a8b83a6f411295478f4026f956dbc35f
+      image: bash:latest
+      imageID: docker-pullable://bash@sha256:376bd611ec5dfc1248a2d21d921bd62d0b858344ce1516cd133249c0a814387d
+      lastState:
+        terminated:
+          containerID: docker://e0516f93c1ecc6dcf19c33b21c0a30a0a8b83a6f411295478f4026f956dbc35f
+          exitCode: 0
+          finishedAt: "2020-06-02T01:32:03Z"
+          reason: Completed
+          startedAt: "2020-06-02T01:32:03Z"
+      name: bash
+      ready: false
+      restartCount: 5
+      started: false
+      state:
+        waiting:
+          message: back-off 2m40s restarting failed container=bash pod=bash_dev-ns(e320cf4b-87ee-4421-946c-355f6a9b5b92)
+          reason: CrashLoopBackOff
+    hostIP: 10.0.0.11
+    phase: Running
+    podIP: 10.244.1.123
+    podIPs:
+    - ip: 10.244.1.123
+    qosClass: BestEffort
+    startTime: "2020-06-02T01:28:50Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2020-06-02T01:29:09Z"
+    labels:
+      run: bash-curl
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:run: {}
+        f:spec:
+          f:containers:
+            k:{"name":"bash-curl"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kubectl
+      operation: Update
+      time: "2020-06-02T01:29:09Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.244.1.124"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2020-06-02T01:32:21Z"
+    name: bash-curl
+    namespace: dev-ns
+    resourceVersion: "1376319"
+    selfLink: /api/v1/namespaces/dev-ns/pods/bash-curl
+    uid: a6dfba73-ce60-4d26-aeec-c9a014934e68
+  spec:
+    containers:
+    - image: cosmintitei/bash-curl
+      imagePullPolicy: Always
+      name: bash-curl
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-r7cqt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-r7cqt
+      secret:
+        defaultMode: 420
+        secretName: default-token-r7cqt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:29:09Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:29:09Z"
+      message: 'containers with unready status: [bash-curl]'
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:29:09Z"
+      message: 'containers with unready status: [bash-curl]'
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:29:09Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://da62f4c5763157bf1f1f6bcbd11dd293841d82a3463f9e6b0a855d6ba86ea5f2
+      image: cosmintitei/bash-curl:latest
+      imageID: docker-pullable://cosmintitei/bash-curl@sha256:19209e69735077ba7bca01c5ae6f76f5c81ea781cfbe959f43a83e91c8623811
+      lastState:
+        terminated:
+          containerID: docker://da62f4c5763157bf1f1f6bcbd11dd293841d82a3463f9e6b0a855d6ba86ea5f2
+          exitCode: 0
+          finishedAt: "2020-06-02T01:32:09Z"
+          reason: Completed
+          startedAt: "2020-06-02T01:32:09Z"
+      name: bash-curl
+      ready: false
+      restartCount: 5
+      started: false
+      state:
+        waiting:
+          message: back-off 2m40s restarting failed container=bash-curl pod=bash-curl_dev-ns(a6dfba73-ce60-4d26-aeec-c9a014934e68)
+          reason: CrashLoopBackOff
+    hostIP: 10.0.0.11
+    phase: Running
+    podIP: 10.244.1.124
+    podIPs:
+    - ip: 10.244.1.124
+    qosClass: BestEffort
+    startTime: "2020-06-02T01:29:09Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2020-06-01T23:16:23Z"
+    labels:
+      run: mysql
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:run: {}
+        f:spec:
+          f:containers:
+            k:{"name":"mysql"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"MYSQL_ROOT_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:tcpSocket:
+                  .: {}
+                  f:port: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":3306,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kubectl
+      operation: Update
+      time: "2020-06-01T23:16:23Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.244.2.89"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2020-06-02T01:34:01Z"
+    name: mysql
+    namespace: dev-ns
+    resourceVersion: "1376561"
+    selfLink: /api/v1/namespaces/dev-ns/pods/mysql
+    uid: 91334fc7-2074-468a-af45-0047cc97e764
+  spec:
+    containers:
+    - env:
+      - name: MYSQL_ROOT_PASSWORD
+        value: admin
+      image: mysql
+      imagePullPolicy: Always
+      livenessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        tcpSocket:
+          port: 3306
+        timeoutSeconds: 1
+      name: mysql
+      ports:
+      - containerPort: 3306
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-r7cqt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node2
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-r7cqt
+      secret:
+        defaultMode: 420
+        secretName: default-token-r7cqt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-01T23:16:23Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:34:01Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:34:01Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-01T23:16:23Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://470e32d21cc7649e1f0bee616e23ebf9af7334c8f81aba9c1f6b2cc7c5b169a4
+      image: mysql:latest
+      imageID: docker-pullable://mysql@sha256:a31a277d8d39450220c722c1302a345c84206e7fd4cdb619e7face046e89031d
+      lastState:
+        terminated:
+          containerID: docker://7fe7cc0d44cb41327b065ef8fa1dac81e4a11d913567619c4d6a981b883fad58
+          exitCode: 137
+          finishedAt: "2020-06-02T01:28:55Z"
+          reason: Error
+          startedAt: "2020-06-02T01:28:08Z"
+      name: mysql
+      ready: true
+      restartCount: 44
+      started: true
+      state:
+        running:
+          startedAt: "2020-06-02T01:34:00Z"
+    hostIP: 10.0.0.12
+    phase: Running
+    podIP: 10.244.2.89
+    podIPs:
+    - ip: 10.244.2.89
+    qosClass: BestEffort
+    startTime: "2020-06-01T23:16:23Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2020-06-02T01:28:43Z"
+    labels:
+      run: nginx
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:run: {}
+        f:spec:
+          f:containers:
+            k:{"name":"nginx"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kubectl
+      operation: Update
+      time: "2020-06-02T01:28:43Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.244.2.190"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2020-06-02T01:28:46Z"
+    name: nginx
+    namespace: dev-ns
+    resourceVersion: "1375714"
+    selfLink: /api/v1/namespaces/dev-ns/pods/nginx
+    uid: 2a28b707-ebde-4552-acda-2a8b3a628891
+  spec:
+    containers:
+    - image: nginx
+      imagePullPolicy: Always
+      name: nginx
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-r7cqt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node2
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-r7cqt
+      secret:
+        defaultMode: 420
+        secretName: default-token-r7cqt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:28:43Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:28:46Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:28:46Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-02T01:28:43Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://7056ddb3d6b097089d505568127dbf6e733b946bb541e7ef57e1eec32304fa20
+      image: nginx:1.17
+      imageID: docker-pullable://nginx@sha256:30dfa439718a17baafefadf16c5e7c9d0a1cde97b4fd84f63b69e13513be7097
+      lastState: {}
+      name: nginx
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2020-06-02T01:28:45Z"
+    hostIP: 10.0.0.12
+    phase: Running
+    podIP: 10.244.2.190
+    podIPs:
+    - ip: 10.244.2.190
+    qosClass: BestEffort
+    startTime: "2020-06-02T01:28:43Z"
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

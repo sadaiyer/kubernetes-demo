@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: compute
+  name: compute
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: compute
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: compute
+    spec:
+      containers:
+      - image: byrnedo/alpine-curl
+        name: alpine-curl
+        command:
+        - /bin/sh
+        - -c
+        - "sleep 600"
+        resources: {}
+status: {}

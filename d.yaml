@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginxd
+  name: nginxd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginxd
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginxd
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: 
+         requests:
+           memory: 64Mi
+status: {}

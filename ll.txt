@@ -1,0 +1,28 @@
+livenessProbe or readinessProbe
+
+exec:
+ command:
+ - ls 
+ - /tmp/fileExists
+
+httpGet:
+ port: 80
+ path: /
+
+tcpSocket:
+ port: 80
+
+initialDelaySeconds
+periodSeconds
+
+
+JOBS
+completions
+parallelism
+activeDeadlineSeconds
+backoffLimits
+
+Multi-Container PODS
+initContainers:
+container1
+container2

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: redis
+  name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: redis
+    spec:
+      containers:
+      - image: busybox
+        name: bb
+        command:
+        - /bin/sh
+        - -c
+        - "sleep 600"
+        volumeMounts:
+        - name: db-secret
+          mountPath: /etc/secrets
+
+      - image: redis:alpine
+        name: redis
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+        - name: redis-master
+          mountPath: /redis-master
+        - name: db-secret
+          mountPath: /etc/secrets
+      volumes:
+      - name: config-volume
+        configMap:
+            name: redis-config
+      - name: redis-master
+        hostPath:
+           path: /data
+      - name: db-secret
+        secret:
+           secretName: db-password
+status: {}

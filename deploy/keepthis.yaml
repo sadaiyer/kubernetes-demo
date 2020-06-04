@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginxd
+  name: nginxd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginxd
+  strategy: 
+    rollingUpdate:
+       maxSurge: 2
+       maxUnavailable: 1
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginxd
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role.kubernetes.io/master
+                operator: Exists
+      volumes:
+      - name: workdir-volume
+        hostPath:
+          path: /workdir
+      - name: empty-volume
+        emptyDir: {}
+      - name: data-volume
+        hostPath: 
+          path: /data
+      - name: pvc-volume
+        persistentVolumeClaim:
+          claimName: log-claim
+      - name: config-volume
+        configMap:
+          name: time-config
+      - name: secret-volume
+        secret:
+          secretName: db-password
+      initContainers:
+      - name: init-container
+        image: busybox
+        volumeMounts:
+        - name: workdir-volume
+          mountPath: /workdir
+        command:
+        - /bin/sh
+        - -c
+        - "touch /workdir/FileExists && sleep 10"
+      containers:
+      - image: nginx
+        name: nginx
+        envFrom:
+        - configMapRef:
+            name: time-config
+        env:
+        - name: TIME_FREQ
+          valueFrom:
+            configMapKeyRef:
+              name: time-config
+              key: TIME_FREQ
+        #secrets
+        envFrom:
+        - secretRef:
+            name: db-password
+        env:
+        - name: DB-PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-password
+              key: password
+        #Start of Liveness
+        livenessProbe:
+          httpGet:
+            port: 80
+            path: /
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+            - ls
+            - /workdir/FileExists
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        volumeMounts:
+        - name: workdir-volume
+          mountPath: /workdir
+        - name: empty-volume
+          mountPath: /data/tmp
+        - name: data-volume
+          mountPath: /data/data
+        - name:  pvc-volume
+          mountPath: /data/pvc
+        - name: config-volume
+          mountPath: /etc/config
+        - name: secret-volume
+          mountPath: /etc/secret
+
+        resources: 
+          limits: 
+             cpu: 0.2
+             memory: 10Mi
+          requests:
+             cpu: 0.2
+             memory: 10Mi
+status: {}

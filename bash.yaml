@@ -1,0 +1,153 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2020-05-24T15:55:30Z"
+  labels:
+    run: bb
+    my-label: test
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:containers:
+          k:{"name":"bb"}:
+            .: {}
+            f:command: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-05-24T15:55:30Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.244.1.113"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2020-05-24T15:55:33Z"
+  name: bb
+  namespace: default
+  resourceVersion: "682259"
+  selfLink: /api/v1/namespaces/default/pods/bb
+  uid: 3d6fa85f-8f38-48e8-b05f-6eaf1708b05c
+spec:
+  containers:
+  - command:
+    - /bin/sh
+    - -c
+    - hostname > /tmp/hostname && sleep 1d
+    image: bash
+    imagePullPolicy: Always
+    name: bb
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-95lng
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: node1
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-95lng
+    secret:
+      defaultMode: 420
+      secretName: default-token-95lng
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-05-24T15:55:30Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-05-24T15:55:33Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-05-24T15:55:33Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-05-24T15:55:30Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://8d5698043474c5195973f73cdd9b85c9ea161279c06e7676d26dfaac9e1af1c6
+    image: bash:latest
+    imageID: docker-pullable://bash@sha256:145e00f05adb8b2fcf914380f2efeeb0efeda8b3fb4025b1118146311099933f
+    lastState: {}
+    name: bb
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-05-24T15:55:33Z"
+  hostIP: 10.0.0.11
+  phase: Running
+  podIP: 10.244.1.113
+  podIPs:
+  - ip: 10.244.1.113
+  qosClass: BestEffort
+  startTime: "2020-05-24T15:55:30Z"

@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-vh-routing 
+spec:
+  rules:
+  - host: watch.ecom-store.com
+    http:
+      paths: 
+      - path: /video
+        backend:
+          serviceName: video-service
+          servicePort: 30093
+      - path: /wear
+        backend:
+          serviceName: wear-service
+          servicePort: 30093

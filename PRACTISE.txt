@@ -1,0 +1,40 @@
+Deploy
+- emptyDir
+- hostPath
+- pvc
+- config
+- secret
+Mount all of the above
+Run on Master
+Change strategy to rollingUpdate, maxSurge:2; maxUnavailable: 1
+Request: 0.2 CPU, 10Mi of memory, Limit: 0.2 CPU, 10Mi of memory
+livenessProbe and ReadinessProbe and startupProbe
+livenessProbe or readinessProbe
+exec:
+ command:
+ - ls
+ - /tmp/fileExists
+httpGet:
+ port: 80
+ path: /
+tcpSocket:
+ port: 80
+initialDelaySeconds
+periodSeconds
+
+configMap:
+envFrom
+env
+
+Secret:
+envFrom
+env
+
+---
+initContainers
+container1
+container2
+
+---
+securityContext: runAsUser: 1000; runAsGroup: 2000 for a POD
+add linuxCapabilities: SYS_TIME

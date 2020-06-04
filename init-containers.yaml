@@ -1,0 +1,224 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"name":"init-demo","namespace":"dev-ns"},"spec":{"containers":[{"image":"nginx","name":"nginx","ports":[{"containerPort":80}],"volumeMounts":[{"mountPath":"/usr/share/nginx/html","name":"workdir"}]}],"dnsPolicy":"Default","initContainers":[{"command":["wget","-O","/work-dir/index.html","http://kubernetes.io"],"image":"busybox","name":"install","volumeMounts":[{"mountPath":"/work-dir","name":"workdir"}]}],"volumes":[{"emptyDir":{},"name":"workdir"}]}}
+  creationTimestamp: "2020-06-01T19:33:07Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:containers:
+          k:{"name":"nginx"}:
+            .: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:ports:
+              .: {}
+              k:{"containerPort":80,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:protocol: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/usr/share/nginx/html"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:initContainers:
+          .: {}
+          k:{"name":"install"}:
+            .: {}
+            f:command: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/work-dir"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+        f:volumes:
+          .: {}
+          k:{"name":"workdir"}:
+            .: {}
+            f:emptyDir: {}
+            f:name: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-06-01T19:33:07Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:initContainerStatuses: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.244.2.83"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2020-06-01T19:33:12Z"
+  name: init-demo
+  namespace: dev-ns
+  resourceVersion: "1322625"
+  selfLink: /api/v1/namespaces/dev-ns/pods/init-demo
+  uid: 242e9e0c-a40a-4bce-8894-e5a11110ad85
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: workdir
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-r7cqt
+      readOnly: true
+  dnsPolicy: Default
+  enableServiceLinks: true
+  initContainers:
+  - command:
+    - wget
+    - -O
+    - /work-dir/index.html
+    - http://kubernetes.io
+    image: busybox
+    imagePullPolicy: Always
+    name: install
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /work-dir
+      name: workdir
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-r7cqt
+      readOnly: true
+  nodeName: node2
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - emptyDir: {}
+    name: workdir
+  - name: default-token-r7cqt
+    secret:
+      defaultMode: 420
+      secretName: default-token-r7cqt
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-01T19:33:10Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-01T19:33:12Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-01T19:33:12Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-01T19:33:07Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://54d10f8d58034a81a8b30a725042d2a4e901c988047bd0cf2fe578fccb5c7e8d
+    image: nginx:1.17
+    imageID: docker-pullable://nginx@sha256:30dfa439718a17baafefadf16c5e7c9d0a1cde97b4fd84f63b69e13513be7097
+    lastState: {}
+    name: nginx
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-06-01T19:33:12Z"
+  hostIP: 10.0.0.12
+  initContainerStatuses:
+  - containerID: docker://27e173b8282b3d2bb91bd9329bd9a85263a72f044a0cb3ee7f4f0a52b8f84efb
+    image: busybox:latest
+    imageID: docker-pullable://busybox@sha256:836945da1f3afe2cfff376d379852bbb82e0237cb2925d53a13f53d6e8a8c48c
+    lastState: {}
+    name: install
+    ready: true
+    restartCount: 0
+    state:
+      terminated:
+        containerID: docker://27e173b8282b3d2bb91bd9329bd9a85263a72f044a0cb3ee7f4f0a52b8f84efb
+        exitCode: 0
+        finishedAt: "2020-06-01T19:33:10Z"
+        reason: Completed
+        startedAt: "2020-06-01T19:33:10Z"
+  phase: Running
+  podIP: 10.244.2.83
+  podIPs:
+  - ip: 10.244.2.83
+  qosClass: BestEffort
+  startTime: "2020-06-01T19:33:07Z"

@@ -1,0 +1,1007 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      flannel.alpha.coreos.com/backend-data: '{"VtepMAC":"de:80:e5:d3:a9:e1"}'
+      flannel.alpha.coreos.com/backend-type: vxlan
+      flannel.alpha.coreos.com/kube-subnet-manager: "true"
+      flannel.alpha.coreos.com/public-ip: 10.0.0.10
+      kubeadm.alpha.kubernetes.io/cri-socket: /var/run/dockershim.sock
+      node.alpha.kubernetes.io/ttl: "0"
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2020-05-15T21:58:23Z"
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: master
+      kubernetes.io/os: linux
+      node-role.kubernetes.io/master: ""
+      run: master
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:kubeadm.alpha.kubernetes.io/cri-socket: {}
+          f:labels:
+            f:node-role.kubernetes.io/master: {}
+      manager: kubeadm
+      operation: Update
+      time: "2020-05-15T21:58:27Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:node.alpha.kubernetes.io/ttl: {}
+        f:spec:
+          f:podCIDR: {}
+          f:podCIDRs:
+            .: {}
+            v:"10.244.0.0/24": {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2020-05-15T21:59:01Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl
+      operation: Update
+      time: "2020-05-23T01:31:34Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:flannel.alpha.coreos.com/backend-data: {}
+            f:flannel.alpha.coreos.com/backend-type: {}
+            f:flannel.alpha.coreos.com/kube-subnet-manager: {}
+            f:flannel.alpha.coreos.com/public-ip: {}
+        f:status:
+          f:conditions:
+            k:{"type":"NetworkUnavailable"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+      manager: flanneld
+      operation: Update
+      time: "2020-05-25T16:25:37Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:volumes.kubernetes.io/controller-managed-attach-detach: {}
+          f:labels:
+            .: {}
+            f:beta.kubernetes.io/arch: {}
+            f:beta.kubernetes.io/os: {}
+            f:kubernetes.io/arch: {}
+            f:kubernetes.io/hostname: {}
+            f:kubernetes.io/os: {}
+        f:status:
+          f:addresses:
+            .: {}
+            k:{"type":"Hostname"}:
+              .: {}
+              f:address: {}
+              f:type: {}
+            k:{"type":"InternalIP"}:
+              .: {}
+              f:address: {}
+              f:type: {}
+          f:allocatable:
+            .: {}
+            f:cpu: {}
+            f:ephemeral-storage: {}
+            f:hugepages-2Mi: {}
+            f:memory: {}
+            f:pods: {}
+          f:capacity:
+            .: {}
+            f:cpu: {}
+            f:ephemeral-storage: {}
+            f:hugepages-2Mi: {}
+            f:memory: {}
+            f:pods: {}
+          f:conditions:
+            .: {}
+            k:{"type":"DiskPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"MemoryPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PIDPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:daemonEndpoints:
+            f:kubeletEndpoint:
+              f:Port: {}
+          f:images: {}
+          f:nodeInfo:
+            f:architecture: {}
+            f:bootID: {}
+            f:containerRuntimeVersion: {}
+            f:kernelVersion: {}
+            f:kubeProxyVersion: {}
+            f:kubeletVersion: {}
+            f:machineID: {}
+            f:operatingSystem: {}
+            f:osImage: {}
+            f:systemUUID: {}
+      manager: kubelet
+      operation: Update
+      time: "2020-06-02T01:02:30Z"
+    name: master
+    resourceVersion: "1367024"
+    selfLink: /api/v1/nodes/master
+    uid: 0cc34d3e-6d53-40b9-92d2-a73e6edb9631
+  spec:
+    podCIDR: 10.244.0.0/24
+    podCIDRs:
+    - 10.244.0.0/24
+  status:
+    addresses:
+    - address: 10.0.0.10
+      type: InternalIP
+    - address: master
+      type: Hostname
+    allocatable:
+      cpu: "2"
+      ephemeral-storage: "23358873562"
+      hugepages-2Mi: "0"
+      memory: 1938412Ki
+      pods: "110"
+    capacity:
+      cpu: "2"
+      ephemeral-storage: 25346000Ki
+      hugepages-2Mi: "0"
+      memory: 2040812Ki
+      pods: "110"
+    conditions:
+    - lastHeartbeatTime: "2020-05-25T16:25:37Z"
+      lastTransitionTime: "2020-05-25T16:25:37Z"
+      message: Flannel is running on this node
+      reason: FlannelIsUp
+      status: "False"
+      type: NetworkUnavailable
+    - lastHeartbeatTime: "2020-06-02T01:02:30Z"
+      lastTransitionTime: "2020-05-15T21:58:18Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2020-06-02T01:02:30Z"
+      lastTransitionTime: "2020-05-15T21:58:18Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2020-06-02T01:02:30Z"
+      lastTransitionTime: "2020-05-15T21:58:18Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2020-06-02T01:02:30Z"
+      lastTransitionTime: "2020-05-15T21:58:57Z"
+      message: kubelet is posting ready status. AppArmor enabled
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - node@sha256:3caf3c763f517cb3208b6022ef517a5357002613a1ff07f1efbdb806945ce25e
+      - node:latest
+      sizeBytes: 941632461
+    - names:
+      - gcr.io/google-samples/node-hello@sha256:d238d0ab54efb76ec0f7b1da666cefa9b40be59ef34346a761b8adc2dd45459b
+      - gcr.io/google-samples/node-hello:1.0
+      sizeBytes: 643762709
+    - names:
+      - k8s.gcr.io/etcd@sha256:4afb99b4690b418ffc2ceb67e1a17376457e441c1f09ab55447f0aaf992fa646
+      - k8s.gcr.io/etcd:3.4.3-0
+      sizeBytes: 288426917
+    - names:
+      - k8s.gcr.io/kube-apiserver@sha256:19a8020e4aaaa8bd41f5bca223e05183cfe66157393ef7a205720c49b2405e0f
+      - k8s.gcr.io/kube-apiserver:v1.18.2
+      sizeBytes: 173001235
+    - names:
+      - k8s.gcr.io/kube-controller-manager@sha256:2d0f92f1a0e58ec8ccee866de76173d81e7d07ed874775cd3dc27d91c97ae9b3
+      - k8s.gcr.io/kube-controller-manager:v1.18.2
+      sizeBytes: 162388499
+    - names:
+      - nginx@sha256:30dfa439718a17baafefadf16c5e7c9d0a1cde97b4fd84f63b69e13513be7097
+      - nginx@sha256:6fff55753e3b34e36e24e37039ee9eae1fe38a6420d8ae16ef37c92d1eb26699
+      - nginx:1.17
+      - nginx:latest
+      sizeBytes: 126773960
+    - names:
+      - k8s.gcr.io/kube-proxy@sha256:8bfd5a33756f4eb95a8598cbef083ad7a59f40c09dccf4ba692b6b91e24cc9c1
+      - k8s.gcr.io/kube-proxy:v1.18.2
+      sizeBytes: 116538359
+    - names:
+      - nginx@sha256:f7988fb6c02e0ce69257d9bd9cf37ae20a60f1df7563c3a2a6abe24160306b8d
+      - nginx:1.14.2
+      sizeBytes: 109129446
+    - names:
+      - k8s.gcr.io/kube-scheduler@sha256:69f90a33b64c99e4c78e3cae36b0c767729b5a54203aa35524b1033708d1b482
+      - k8s.gcr.io/kube-scheduler:v1.18.2
+      sizeBytes: 95279635
+    - names:
+      - quay.io/coreos/flannel@sha256:6d451d92c921f14bfb38196aacb6e506d4593c5b3c9d40a8b8a2506010dc3e10
+      - quay.io/coreos/flannel:v0.12.0-amd64
+      sizeBytes: 52767393
+    - names:
+      - k8s.gcr.io/coredns@sha256:2c8d61c46f484d881db43b34d13ca47a269336e576c81cf007ca740fa9ec0800
+      - k8s.gcr.io/coredns:1.6.7
+      sizeBytes: 43794147
+    - names:
+      - redis@sha256:43524b12420e141ff08e05d44a4278d1d4e6c26f538cc7309515d32be21c07bf
+      - redis:alpine
+      sizeBytes: 31619125
+    - names:
+      - bash@sha256:145e00f05adb8b2fcf914380f2efeeb0efeda8b3fb4025b1118146311099933f
+      sizeBytes: 13184799
+    - names:
+      - bash@sha256:376bd611ec5dfc1248a2d21d921bd62d0b858344ce1516cd133249c0a814387d
+      - bash:latest
+      sizeBytes: 13149307
+    - names:
+      - busybox@sha256:836945da1f3afe2cfff376d379852bbb82e0237cb2925d53a13f53d6e8a8c48c
+      - busybox:latest
+      sizeBytes: 1219598
+    - names:
+      - k8s.gcr.io/pause@sha256:927d98197ec1141a368550822d18fa1c60bdae27b78b0c004f705f548c07814f
+      - k8s.gcr.io/pause:3.2
+      sizeBytes: 682696
+    nodeInfo:
+      architecture: amd64
+      bootID: 39de26fd-9a6b-42e7-b36b-d510b9a169aa
+      containerRuntimeVersion: docker://19.3.6
+      kernelVersion: 4.15.0-101-generic
+      kubeProxyVersion: v1.18.2
+      kubeletVersion: v1.18.2
+      machineID: 4dc30e927e054b8ab80d8af84026cf6f
+      operatingSystem: linux
+      osImage: Ubuntu 18.04.4 LTS
+      systemUUID: F85EE8C4-B856-493A-BC15-915635A0A02D
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      flannel.alpha.coreos.com/backend-data: '{"VtepMAC":"ca:80:38:e1:2f:12"}'
+      flannel.alpha.coreos.com/backend-type: vxlan
+      flannel.alpha.coreos.com/kube-subnet-manager: "true"
+      flannel.alpha.coreos.com/public-ip: 10.0.0.11
+      kubeadm.alpha.kubernetes.io/cri-socket: /var/run/dockershim.sock
+      node.alpha.kubernetes.io/ttl: "0"
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2020-05-15T22:01:40Z"
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: node1
+      kubernetes.io/os: linux
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:node.alpha.kubernetes.io/ttl: {}
+        f:spec:
+          f:podCIDR: {}
+          f:podCIDRs:
+            .: {}
+            v:"10.244.1.0/24": {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2020-05-15T22:01:40Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:kubeadm.alpha.kubernetes.io/cri-socket: {}
+      manager: kubeadm
+      operation: Update
+      time: "2020-05-15T22:01:40Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:flannel.alpha.coreos.com/backend-data: {}
+            f:flannel.alpha.coreos.com/backend-type: {}
+            f:flannel.alpha.coreos.com/kube-subnet-manager: {}
+            f:flannel.alpha.coreos.com/public-ip: {}
+        f:status:
+          f:conditions:
+            k:{"type":"NetworkUnavailable"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+      manager: flanneld
+      operation: Update
+      time: "2020-05-25T16:25:36Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:volumes.kubernetes.io/controller-managed-attach-detach: {}
+          f:labels:
+            .: {}
+            f:beta.kubernetes.io/arch: {}
+            f:beta.kubernetes.io/os: {}
+            f:kubernetes.io/arch: {}
+            f:kubernetes.io/hostname: {}
+            f:kubernetes.io/os: {}
+        f:status:
+          f:addresses:
+            .: {}
+            k:{"type":"Hostname"}:
+              .: {}
+              f:address: {}
+              f:type: {}
+            k:{"type":"InternalIP"}:
+              .: {}
+              f:address: {}
+              f:type: {}
+          f:allocatable:
+            .: {}
+            f:cpu: {}
+            f:ephemeral-storage: {}
+            f:hugepages-2Mi: {}
+            f:memory: {}
+            f:pods: {}
+          f:capacity:
+            .: {}
+            f:cpu: {}
+            f:ephemeral-storage: {}
+            f:hugepages-2Mi: {}
+            f:memory: {}
+            f:pods: {}
+          f:conditions:
+            .: {}
+            k:{"type":"DiskPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"MemoryPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PIDPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:daemonEndpoints:
+            f:kubeletEndpoint:
+              f:Port: {}
+          f:images: {}
+          f:nodeInfo:
+            f:architecture: {}
+            f:bootID: {}
+            f:containerRuntimeVersion: {}
+            f:kernelVersion: {}
+            f:kubeProxyVersion: {}
+            f:kubeletVersion: {}
+            f:machineID: {}
+            f:operatingSystem: {}
+            f:osImage: {}
+            f:systemUUID: {}
+      manager: kubelet
+      operation: Update
+      time: "2020-06-02T01:03:24Z"
+    name: node1
+    resourceVersion: "1367300"
+    selfLink: /api/v1/nodes/node1
+    uid: 0cb6d2d6-419f-493a-bb28-8e0af81076ac
+  spec:
+    podCIDR: 10.244.1.0/24
+    podCIDRs:
+    - 10.244.1.0/24
+  status:
+    addresses:
+    - address: 10.0.0.11
+      type: InternalIP
+    - address: node1
+      type: Hostname
+    allocatable:
+      cpu: "2"
+      ephemeral-storage: "23358873562"
+      hugepages-2Mi: "0"
+      memory: 1938412Ki
+      pods: "110"
+    capacity:
+      cpu: "2"
+      ephemeral-storage: 25346000Ki
+      hugepages-2Mi: "0"
+      memory: 2040812Ki
+      pods: "110"
+    conditions:
+    - lastHeartbeatTime: "2020-05-25T16:25:37Z"
+      lastTransitionTime: "2020-05-25T16:25:37Z"
+      message: Flannel is running on this node
+      reason: FlannelIsUp
+      status: "False"
+      type: NetworkUnavailable
+    - lastHeartbeatTime: "2020-06-02T01:03:24Z"
+      lastTransitionTime: "2020-05-15T22:01:39Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2020-06-02T01:03:24Z"
+      lastTransitionTime: "2020-05-15T22:01:39Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2020-06-02T01:03:24Z"
+      lastTransitionTime: "2020-05-15T22:01:39Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2020-06-02T01:03:24Z"
+      lastTransitionTime: "2020-05-15T22:02:00Z"
+      message: kubelet is posting ready status. AppArmor enabled
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - node@sha256:3caf3c763f517cb3208b6022ef517a5357002613a1ff07f1efbdb806945ce25e
+      - node:latest
+      sizeBytes: 941632461
+    - names:
+      - perl@sha256:0914a81e62e713c49a650d23cb670148148f9d8297d2aca3e25587b6740d4d74
+      - perl:latest
+      sizeBytes: 857433298
+    - names:
+      - gcr.io/google-samples/node-hello@sha256:d238d0ab54efb76ec0f7b1da666cefa9b40be59ef34346a761b8adc2dd45459b
+      - gcr.io/google-samples/node-hello:1.0
+      sizeBytes: 643762709
+    - names:
+      - kubernetesui/dashboard@sha256:06868692fb9a7f2ede1a06de1b7b32afabc40ec739c1181d83b5ed3eb147ec6e
+      - kubernetesui/dashboard:v2.0.0
+      sizeBytes: 221895031
+    - names:
+      - nginx@sha256:2f68b99bc0d6d25d0c56876b924ec20418544ff28e1fb89a4c27679a40da811b
+      - nginx:1.9.1
+      sizeBytes: 132835913
+    - names:
+      - nginx@sha256:30dfa439718a17baafefadf16c5e7c9d0a1cde97b4fd84f63b69e13513be7097
+      - nginx@sha256:6fff55753e3b34e36e24e37039ee9eae1fe38a6420d8ae16ef37c92d1eb26699
+      - nginx@sha256:f938e7389670418efee4d5a8748600d9ec705170957774d25d4ec73bdbe004e2
+      - nginx:1.17
+      - nginx:latest
+      sizeBytes: 126773960
+    - names:
+      - nginx@sha256:d20aa6d1cae56fd17cd458f4807e0de462caf2336f0b70b5eeb69fcaaf30dd9c
+      - nginx:1.16
+      sizeBytes: 126681697
+    - names:
+      - k8s.gcr.io/kube-proxy@sha256:8bfd5a33756f4eb95a8598cbef083ad7a59f40c09dccf4ba692b6b91e24cc9c1
+      - k8s.gcr.io/kube-proxy:v1.18.2
+      sizeBytes: 116538359
+    - names:
+      - nginx@sha256:b4b9b3eee194703fc2fa8afa5b7510c77ae70cfba567af1376a573a967c03dbb
+      - nginx:1.17.1
+      sizeBytes: 109357455
+    - names:
+      - nginx@sha256:23b4dcdf0d34d4a129755fc6f52e1c6e23bb34ea011b315d87e193033bcd1b68
+      - nginx:1.15
+      sizeBytes: 109331233
+    - names:
+      - nginx@sha256:c8a861b8a1eeef6d48955a6c6d5dff8e2580f13ff4d0f549e082e7c82a8617a2
+      - nginx:1.15.10
+      sizeBytes: 109294563
+    - names:
+      - nginx@sha256:f7988fb6c02e0ce69257d9bd9cf37ae20a60f1df7563c3a2a6abe24160306b8d
+      - nginx:1.14.2
+      sizeBytes: 109129446
+    - names:
+      - nginx@sha256:32fdf92b4e986e109e4db0865758020cb0c3b70d6ba80d02fe87bad5cc3dc228
+      - nginx:1.14.1
+      sizeBytes: 109077652
+    - names:
+      - nginx@sha256:2c390758c6a4660d93467ce5e70e8d08d6e401f748bffba7885ce160ca7e481d
+      - nginx:1.7.8
+      sizeBytes: 91744473
+    - names:
+      - nginx@sha256:e3456c851a152494c3e4ff5fcc26f240206abac0c9d794affb40e0714846c451
+      - nginx:1.7.9
+      sizeBytes: 91664166
+    - names:
+      - dgkanatsios/simpleapp@sha256:63370abfc47ae07d112338e324e8ef50c00e95990693908e39a98eb818d561c1
+      - dgkanatsios/simpleapp:latest
+      sizeBytes: 68280966
+    - names:
+      - quay.io/coreos/flannel@sha256:6d451d92c921f14bfb38196aacb6e506d4593c5b3c9d40a8b8a2506010dc3e10
+      - quay.io/coreos/flannel:v0.12.0-amd64
+      sizeBytes: 52767393
+    - names:
+      - k8s.gcr.io/metrics-server-amd64@sha256:c9c4e95068b51d6b33a9dccc61875df07dc650abbf4ac1a19d58b4628f89288b
+      - k8s.gcr.io/metrics-server-amd64:v0.3.6
+      sizeBytes: 39944451
+    - names:
+      - redis@sha256:8be79c511a69ad912f0366d5250968916d1438ff3b1a420c52e3ada98d03c57a
+      - redis:alpine
+      sizeBytes: 31618077
+    - names:
+      - nginx@sha256:763e7f0188e378fef0c761854552c70bbd817555dc4de029681a2e972e25e30e
+      - nginx:alpine
+      sizeBytes: 19936884
+    - names:
+      - cosmintitei/bash-curl@sha256:19209e69735077ba7bca01c5ae6f76f5c81ea781cfbe959f43a83e91c8623811
+      - cosmintitei/bash-curl:latest
+      sizeBytes: 13657285
+    - names:
+      - bash@sha256:145e00f05adb8b2fcf914380f2efeeb0efeda8b3fb4025b1118146311099933f
+      - bash:latest
+      sizeBytes: 13184799
+    - names:
+      - byrnedo/alpine-curl@sha256:ead845a9d8e26a80afc280ee10e62066c732418da0e11228c4f3dbc1389636ef
+      - byrnedo/alpine-curl:latest
+      sizeBytes: 6893026
+    - names:
+      - alpine@sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
+      - alpine:latest
+      sizeBytes: 5574537
+    - names:
+      - kodekloud/throw-dice@sha256:9c70a0f907b99293885a9591b6162e9ec89e127937626a97ca7f9f6be2d98b01
+      - kodekloud/throw-dice:latest
+      sizeBytes: 4413684
+    - names:
+      - k8s.gcr.io/busybox@sha256:d8d3bc2c183ed2f9f10e7258f84971202325ee6011ba137112e01e30f206de67
+      - k8s.gcr.io/busybox:latest
+      sizeBytes: 2433303
+    - names:
+      - busybox@sha256:836945da1f3afe2cfff376d379852bbb82e0237cb2925d53a13f53d6e8a8c48c
+      - busybox:latest
+      sizeBytes: 1219598
+    - names:
+      - k8s.gcr.io/pause@sha256:927d98197ec1141a368550822d18fa1c60bdae27b78b0c004f705f548c07814f
+      - k8s.gcr.io/pause:3.2
+      sizeBytes: 682696
+    nodeInfo:
+      architecture: amd64
+      bootID: 0a76398a-1dd2-4c80-b7bd-9c29f3486375
+      containerRuntimeVersion: docker://19.3.6
+      kernelVersion: 4.15.0-101-generic
+      kubeProxyVersion: v1.18.2
+      kubeletVersion: v1.18.2
+      machineID: ec1c754afe76419ab07c3cd06ca1f20f
+      operatingSystem: linux
+      osImage: Ubuntu 18.04.4 LTS
+      systemUUID: 89482AB7-76A0-4E62-9782-481E5BE1E917
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      flannel.alpha.coreos.com/backend-data: '{"VtepMAC":"3e:73:d6:a3:77:7f"}'
+      flannel.alpha.coreos.com/backend-type: vxlan
+      flannel.alpha.coreos.com/kube-subnet-manager: "true"
+      flannel.alpha.coreos.com/public-ip: 10.0.0.12
+      kubeadm.alpha.kubernetes.io/cri-socket: /var/run/dockershim.sock
+      node.alpha.kubernetes.io/ttl: "0"
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2020-05-15T22:04:48Z"
+    labels:
+      accelerator: nvidia-tesla-p100
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: node2
+      kubernetes.io/os: linux
+      nodeName: nginxnode
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:kubeadm.alpha.kubernetes.io/cri-socket: {}
+      manager: kubeadm
+      operation: Update
+      time: "2020-05-15T22:04:48Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:node.alpha.kubernetes.io/ttl: {}
+        f:spec:
+          f:podCIDR: {}
+          f:podCIDRs:
+            .: {}
+            v:"10.244.2.0/24": {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2020-05-25T16:29:42Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:flannel.alpha.coreos.com/backend-data: {}
+            f:flannel.alpha.coreos.com/backend-type: {}
+            f:flannel.alpha.coreos.com/kube-subnet-manager: {}
+            f:flannel.alpha.coreos.com/public-ip: {}
+        f:status:
+          f:conditions:
+            k:{"type":"NetworkUnavailable"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+      manager: flanneld
+      operation: Update
+      time: "2020-05-25T16:29:48Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:accelerator: {}
+            f:nodeName: {}
+      manager: kubectl
+      operation: Update
+      time: "2020-05-30T00:52:35Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:volumes.kubernetes.io/controller-managed-attach-detach: {}
+          f:labels:
+            .: {}
+            f:beta.kubernetes.io/arch: {}
+            f:beta.kubernetes.io/os: {}
+            f:kubernetes.io/arch: {}
+            f:kubernetes.io/hostname: {}
+            f:kubernetes.io/os: {}
+        f:status:
+          f:addresses:
+            .: {}
+            k:{"type":"Hostname"}:
+              .: {}
+              f:address: {}
+              f:type: {}
+            k:{"type":"InternalIP"}:
+              .: {}
+              f:address: {}
+              f:type: {}
+          f:allocatable:
+            .: {}
+            f:cpu: {}
+            f:ephemeral-storage: {}
+            f:hugepages-2Mi: {}
+            f:memory: {}
+            f:pods: {}
+          f:capacity:
+            .: {}
+            f:cpu: {}
+            f:ephemeral-storage: {}
+            f:hugepages-2Mi: {}
+            f:memory: {}
+            f:pods: {}
+          f:conditions:
+            .: {}
+            k:{"type":"DiskPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"MemoryPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PIDPressure"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastHeartbeatTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:daemonEndpoints:
+            f:kubeletEndpoint:
+              f:Port: {}
+          f:images: {}
+          f:nodeInfo:
+            f:architecture: {}
+            f:bootID: {}
+            f:containerRuntimeVersion: {}
+            f:kernelVersion: {}
+            f:kubeProxyVersion: {}
+            f:kubeletVersion: {}
+            f:machineID: {}
+            f:operatingSystem: {}
+            f:osImage: {}
+            f:systemUUID: {}
+      manager: kubelet
+      operation: Update
+      time: "2020-06-02T00:59:24Z"
+    name: node2
+    resourceVersion: "1365956"
+    selfLink: /api/v1/nodes/node2
+    uid: b58f4f57-a2ec-451f-a065-3baf32f87b47
+  spec:
+    podCIDR: 10.244.2.0/24
+    podCIDRs:
+    - 10.244.2.0/24
+  status:
+    addresses:
+    - address: 10.0.0.12
+      type: InternalIP
+    - address: node2
+      type: Hostname
+    allocatable:
+      cpu: "2"
+      ephemeral-storage: "23358873562"
+      hugepages-2Mi: "0"
+      memory: 1938412Ki
+      pods: "110"
+    capacity:
+      cpu: "2"
+      ephemeral-storage: 25346000Ki
+      hugepages-2Mi: "0"
+      memory: 2040812Ki
+      pods: "110"
+    conditions:
+    - lastHeartbeatTime: "2020-05-25T16:29:48Z"
+      lastTransitionTime: "2020-05-25T16:29:48Z"
+      message: Flannel is running on this node
+      reason: FlannelIsUp
+      status: "False"
+      type: NetworkUnavailable
+    - lastHeartbeatTime: "2020-06-02T00:59:24Z"
+      lastTransitionTime: "2020-05-25T16:29:41Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2020-06-02T00:59:24Z"
+      lastTransitionTime: "2020-05-25T16:29:41Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2020-06-02T00:59:24Z"
+      lastTransitionTime: "2020-05-25T16:29:41Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2020-06-02T00:59:24Z"
+      lastTransitionTime: "2020-05-25T16:29:42Z"
+      message: kubelet is posting ready status. AppArmor enabled
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - node@sha256:3caf3c763f517cb3208b6022ef517a5357002613a1ff07f1efbdb806945ce25e
+      - node:latest
+      sizeBytes: 941632461
+    - names:
+      - perl@sha256:047cbc54c1d8bc602c10fcb27357532be6ee4ee3dd7f438b72e4e60789f7e1bc
+      - perl:latest
+      sizeBytes: 857479901
+    - names:
+      - perl@sha256:0914a81e62e713c49a650d23cb670148148f9d8297d2aca3e25587b6740d4d74
+      sizeBytes: 857433298
+    - names:
+      - gcr.io/google-samples/node-hello@sha256:d238d0ab54efb76ec0f7b1da666cefa9b40be59ef34346a761b8adc2dd45459b
+      - gcr.io/google-samples/node-hello:1.0
+      sizeBytes: 643762709
+    - names:
+      - mysql@sha256:a31a277d8d39450220c722c1302a345c84206e7fd4cdb619e7face046e89031d
+      - mysql:latest
+      sizeBytes: 540571102
+    - names:
+      - nginx@sha256:2f68b99bc0d6d25d0c56876b924ec20418544ff28e1fb89a4c27679a40da811b
+      - nginx:1.9.1
+      sizeBytes: 132835913
+    - names:
+      - nginx@sha256:30dfa439718a17baafefadf16c5e7c9d0a1cde97b4fd84f63b69e13513be7097
+      - nginx@sha256:6fff55753e3b34e36e24e37039ee9eae1fe38a6420d8ae16ef37c92d1eb26699
+      - nginx:1.17
+      - nginx:latest
+      sizeBytes: 126773960
+    - names:
+      - kodekloud/nginx@sha256:2862900861517dfaf9e0ed0f4fa199744a7410f4f78520866031c725c386bb5e
+      - kodekloud/nginx:latest
+      sizeBytes: 126699645
+    - names:
+      - nginx@sha256:d20aa6d1cae56fd17cd458f4807e0de462caf2336f0b70b5eeb69fcaaf30dd9c
+      - nginx:1.16
+      - nginx:1.16.1
+      sizeBytes: 126681697
+    - names:
+      - nginx@sha256:77ebc94e0cec30b20f9056bac1066b09fbdc049401b71850922c63fc0cc1762e
+      - nginx:1.17.4
+      sizeBytes: 125993293
+    - names:
+      - k8s.gcr.io/kube-proxy@sha256:8bfd5a33756f4eb95a8598cbef083ad7a59f40c09dccf4ba692b6b91e24cc9c1
+      - k8s.gcr.io/kube-proxy:v1.18.2
+      sizeBytes: 116538359
+    - names:
+      - nginx@sha256:c8a861b8a1eeef6d48955a6c6d5dff8e2580f13ff4d0f549e082e7c82a8617a2
+      - nginx:1.15.10
+      sizeBytes: 109294563
+    - names:
+      - nginx@sha256:f7988fb6c02e0ce69257d9bd9cf37ae20a60f1df7563c3a2a6abe24160306b8d
+      - nginx:1.14
+      - nginx:1.14.2
+      sizeBytes: 109129446
+    - names:
+      - redis@sha256:d27740b5bd12087efc2b30ac9102fa767d6cc83611dc0fc28f0edb042e835996
+      - redis:latest
+      sizeBytes: 104120748
+    - names:
+      - nginx@sha256:2c390758c6a4660d93467ce5e70e8d08d6e401f748bffba7885ce160ca7e481d
+      - nginx:1.7.8
+      sizeBytes: 91744473
+    - names:
+      - nginx@sha256:e3456c851a152494c3e4ff5fcc26f240206abac0c9d794affb40e0714846c451
+      - nginx:1.7.9
+      sizeBytes: 91664166
+    - names:
+      - dgkanatsios/simpleapp@sha256:63370abfc47ae07d112338e324e8ef50c00e95990693908e39a98eb818d561c1
+      - dgkanatsios/simpleapp:latest
+      sizeBytes: 68280966
+    - names:
+      - quay.io/coreos/flannel@sha256:6d451d92c921f14bfb38196aacb6e506d4593c5b3c9d40a8b8a2506010dc3e10
+      - quay.io/coreos/flannel:v0.12.0-amd64
+      sizeBytes: 52767393
+    - names:
+      - k8s.gcr.io/metrics-server-amd64@sha256:c9c4e95068b51d6b33a9dccc61875df07dc650abbf4ac1a19d58b4628f89288b
+      - k8s.gcr.io/metrics-server-amd64:v0.3.6
+      sizeBytes: 39944451
+    - names:
+      - kubernetesui/metrics-scraper@sha256:555981a24f184420f3be0c79d4efb6c948a85cfce84034f85a563f4151a81cbf
+      - kubernetesui/metrics-scraper:v1.0.4
+      sizeBytes: 36937728
+    - names:
+      - redis@sha256:43524b12420e141ff08e05d44a4278d1d4e6c26f538cc7309515d32be21c07bf
+      - redis:alpine
+      sizeBytes: 31619125
+    - names:
+      - nginx@sha256:763e7f0188e378fef0c761854552c70bbd817555dc4de029681a2e972e25e30e
+      - nginx:alpine
+      sizeBytes: 19936884
+    - names:
+      - cosmintitei/bash-curl@sha256:19209e69735077ba7bca01c5ae6f76f5c81ea781cfbe959f43a83e91c8623811
+      - cosmintitei/bash-curl:latest
+      sizeBytes: 13657285
+    - names:
+      - bash@sha256:145e00f05adb8b2fcf914380f2efeeb0efeda8b3fb4025b1118146311099933f
+      - bash:latest
+      sizeBytes: 13184799
+    - names:
+      - byrnedo/alpine-curl@sha256:ead845a9d8e26a80afc280ee10e62066c732418da0e11228c4f3dbc1389636ef
+      - byrnedo/alpine-curl:latest
+      sizeBytes: 6893026
+    - names:
+      - kodekloud/throw-dice@sha256:9c70a0f907b99293885a9591b6162e9ec89e127937626a97ca7f9f6be2d98b01
+      - kodekloud/throw-dice:latest
+      sizeBytes: 4413684
+    - names:
+      - busybox@sha256:836945da1f3afe2cfff376d379852bbb82e0237cb2925d53a13f53d6e8a8c48c
+      - busybox:latest
+      sizeBytes: 1219598
+    - names:
+      - k8s.gcr.io/pause@sha256:927d98197ec1141a368550822d18fa1c60bdae27b78b0c004f705f548c07814f
+      - k8s.gcr.io/pause:3.2
+      sizeBytes: 682696
+    nodeInfo:
+      architecture: amd64
+      bootID: c9ba4bf5-89a1-48b6-a745-4012067cedfe
+      containerRuntimeVersion: docker://19.3.6
+      kernelVersion: 4.15.0-101-generic
+      kubeProxyVersion: v1.18.2
+      kubeletVersion: v1.18.2
+      machineID: 9f735f16ce5c4dd3a32df44ab58cbf68
+      operatingSystem: linux
+      osImage: Ubuntu 18.04.4 LTS
+      systemUUID: C9D46339-C714-4F89-A876-031976E6B014
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
